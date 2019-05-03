@@ -1,0 +1,62 @@
+from math import *
+from time import *
+
+arr = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1]
+myTime = 0
+mathTime = 0
+
+def factorial(n):
+  if n == 1:
+    return n
+  else:
+    return n*factorial(n-1)
+    
+numIterations = 100
+def expx(x, limit):
+  if x < 0:
+    return 1/exp(-x)
+  total = 1
+  current = 0
+  previous = 0
+  for i in range(1, numIterations):
+    if i == 1:
+      previous = 1
+      current = x
+      total += current
+      previous = current
+    else:
+      current = previous*(x/i)
+      total += current
+      previous = current
+    if abs(current) < limit:
+      #i += (exp(x)**2)/(factorial(i))
+      return total
+      mathTime = time()
+    if i == numIterations:
+      print "Could not be computed to this limit in " + str(numIterations) + " iterations."
+
+"""def test():
+  x = float(input("What is X?"))
+  limit = 0.001 #float(input("what's the limit?"))
+  print str(expx(x, limit))
+  print str(exp(x))
+"""
+def numbers(array):#"  Time: " + 
+  for i in array:
+    print str(i)+" 1A "+str(expx(i, 0.001))
+    print str(i)+" 1B "+str(exp(i))
+    myTime = time()
+    if mathTime < myTime:
+      print "The math function was " + str(myTime-mathTime) + " nanoseconds faster" 
+    elif mathTime > myTime:
+      print "My function was " + str(mathTime-myTime) + " nanoseconds faster" 
+    else:
+      print "The two times were identical"
+    
+    print(" ")
+numbers(arr)
+
+
+#test()
+
+      
