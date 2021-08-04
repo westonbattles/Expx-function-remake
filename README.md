@@ -1,2 +1,4 @@
 # Exp-x-
-This compares my exp function and the built in one in Python 2.7
+This project was a challenge my coding instructor gave me, in which i add to remake the python exp(x) function and make it more effecient
+
+The file compares the built in function and mine and checks the time each one took to run
